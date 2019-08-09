@@ -1,0 +1,10 @@
+<div class="container video-view" *ngIf="video">
+    <!-- iframe -->
+    <iframe height="682" width="100%" [src]="('https://www.youtube.com/embed/'+ videoId) | safeUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <h4>{{video.snippet.title}}</h4>
+    <div class="video-view__related mt-5">
+        <h5>Related videos</h5>
+        <app-videos-list [videos]="videos$" [loading]="loadingRelated$" (scrolled)="onScrolled($event)" [infiniteScrollContainer]="'.video-view'"></app-videos-list>
+    </div>
+</div>
+

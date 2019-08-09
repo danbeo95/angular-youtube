@@ -1,0 +1,17 @@
+<div class="collection">
+    <div class="collection__title d-flex align-items-center justify-content-between">
+        <h5 class="text-info m-0">
+            My Collection
+            <span>({{total$ | async}})</span>
+        </h5>
+        <button class="btn btn-sm" (click)="onClickClearAll()">Clear all</button>
+    </div>
+    <div class="collection__input-search mt-3">
+        <input type="text" class="form-control" placeholder="serach video..." [(ngModel)]="searchQuery" (keyup)="onSearch()">
+    </div>
+    <app-collection-item *ngFor="let video of collection$ | async" [video]="video" (remove)="onRemove($event)">
+    </app-collection-item>
+    <!-- No collection -->
+    <div class="p-3 text-danger font-weight-bold text-center" *ngIf="(collection$ | async).length == 0">No video in collection !
+    </div>
+</div>

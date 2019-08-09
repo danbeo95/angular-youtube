@@ -1,0 +1,11 @@
+.top-bar{
+    padding:16px;
+    box-shadow: 0px 0px 15px 1px #000;
+}
+.top-bar__input-search{
+    display: flex;
+    flex: 0.75;
+}
+.top-bar__logo{
+    cursor: pointer;
+}

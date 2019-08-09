@@ -1,0 +1,11 @@
+<div class="collection-item row">
+    <div class="col-4 col-md-12" [routerLink]="['video-view',video.id]">
+        <img [src]="video.snippet.thumbnails.high.url" alt="" class="collection-item__image">
+    </div>
+    <div class="col-8 col-md-12" [routerLink]="['video-view',video.id]">
+        <div>{{video.snippet.title}}</div>
+    </div>
+    <button class="btn collection-item__btn-remove-collection" (click)="onClickRemove()">
+        <i class="fa fa-trash text-danger"></i>
+    </button>
+</div>

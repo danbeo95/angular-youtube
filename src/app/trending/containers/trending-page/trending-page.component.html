@@ -1,0 +1,3 @@
+<div class="container-fluid trending">
+    <app-videos-list [videos]="videos$" (scrolled)="onScrolled($event)" [loading]="loading$" (clickVideo)="onClickVideo($event)"></app-videos-list>
+</div>

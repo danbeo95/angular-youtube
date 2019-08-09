@@ -1,0 +1,11 @@
+<div class="side-menu" [class.side-bar--hide]="!isShowMenu">
+    <!-- list menu -->
+    <div class="side-menu__list">
+        <div class="side-menu__item" *ngFor="let page of pages" [routerLink]="page.url" routerLinkActive="side-menu__item--active">
+            <i class="fa {{page.icon}}" aria-hidden="true"></i>
+            <span class="side-menu__item-text">{{page.title}}</span>
+        </div>
+    </div>
+    <!-- collection -->
+     <app-collection class="collection"></app-collection>
+</div>

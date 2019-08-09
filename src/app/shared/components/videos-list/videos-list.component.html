@@ -1,0 +1,24 @@
+<div class="container videos-list" infiniteScroll 
+[infiniteScrollDistance]="0.1"
+[infiniteScrollThrottle]="500"
+[infiniteScrollContainer]="infiniteScrollContainer"
+[fromRoot]="infiniteScrollContainer ? true : false"
+    (scrolled)="onScrolled()" [scrollWindow]="false">
+    <div class="p-3 text-center" *ngIf="(videos$ | async).length == 0 && !(loading$ | async)">
+        No video found !
+    </div>
+    <div class="row">
+        <div class="col col-md-3 col-12 videos-list__video animated fadeIn delay-{{(i%20)*100}}ms"
+            *ngFor="let video of videos$ | async;let i = index">
+            <app-video-item [video]="video"
+            [inCollection]="(collectionIds$ | async) | inCollection : video"
+            (removeCollection)="onRemoveToCollection($event)"
+            (addCollection)="onAddToCollection($event)">
+            </app-video-item>
+        </div>
+    </div>
+
+    <div class="text-center p-3" *ngIf="loading$ | async">
+        <div class="spinner-border text-primary"></div>
+    </div>
+</div>
