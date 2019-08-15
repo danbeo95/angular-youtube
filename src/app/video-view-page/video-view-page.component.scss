@@ -1,4 +1,26 @@
-.video-view{
-    height: 100%;
-    overflow: auto;
+.video-view {
+  height: 100%;
+  overflow: auto;
+}
+.iframe {
+  width: 100%;
+  height: 500px;
+}
+.iframe__container {
+  height: 100%;
+  width: 100%;
+}
+.iframe--animated {
+  width: 200px;
+  height: 200px;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .iframe {
+    height: 250px;
+  }
 }

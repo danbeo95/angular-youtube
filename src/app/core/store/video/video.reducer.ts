@@ -33,7 +33,8 @@ export const initialState: IVideosState = {
     home: initialHomeState,
     trending: initialTrendingState,
     search: initialSearchState,
-    related: initialRelatedState
+    related: initialRelatedState,
+    nowPlaying: null
 }
 // Reducer funtion
 export function videoReducer(state = initialState, action: VideoActions): IVideosState {
@@ -108,6 +109,18 @@ export function videoReducer(state = initialState, action: VideoActions): IVideo
             return {
                 ...state,
                 related: relatedAdapter.addMany(action.payload.items, { ...state.related, loading: false, nextPageToken: action.payload.nextPageToken })
+            }
+
+        // Video now playing
+        case EVideoActions.ADD_NOW_PALYING:
+            return {
+                ...state,
+                nowPlaying: action.payload
+            }
+        case EVideoActions.REMOVE_NOW_PALYING:
+            return {
+                ...state,
+                nowPlaying: null
             }
         default:
             return state;

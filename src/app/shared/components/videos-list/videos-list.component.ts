@@ -17,6 +17,7 @@ export class VideosListComponent implements OnInit {
   @Input('loading') loading$: Observable<boolean>;
   @Input() infiniteScrollContainer: string;
   @Output() scrolled: EventEmitter<void> = new EventEmitter();
+  @Output() scroll:EventEmitter<void> = new EventEmitter();
   collectionIds$: Observable<Array<number | string>>;
   constructor(
     private store: Store<fromRoot.IAppState>
@@ -36,5 +37,8 @@ export class VideosListComponent implements OnInit {
   }
   onRemoveToCollection(videoId:string){
     this.store.dispatch(new fromCollection.RemoveToCollection(videoId));
+  }
+  onScroll(){
+    this.scroll.emit();
   }
 }

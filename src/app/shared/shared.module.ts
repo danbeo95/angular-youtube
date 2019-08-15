@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ComponentsModule } from './components/components.module';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
 import { PipesModule } from './pipes/pipes.module';
+import { DirectivesModule } from './directives/directives.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { PipesModule } from './pipes/pipes.module';
   exports:[
     ComponentsModule,
     InfiniteScrollModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ]
 })
 export class SharedModule { }

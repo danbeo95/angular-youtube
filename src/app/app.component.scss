@@ -9,6 +9,8 @@
 }
 .main__container{
     display: flex;
+    flex:1;
+    overflow: hidden;
 }
 .main__content{
     flex: 1;

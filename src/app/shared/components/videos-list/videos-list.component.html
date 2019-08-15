@@ -3,7 +3,9 @@
 [infiniteScrollThrottle]="500"
 [infiniteScrollContainer]="infiniteScrollContainer"
 [fromRoot]="infiniteScrollContainer ? true : false"
-    (scrolled)="onScrolled()" [scrollWindow]="false">
+(scrolled)="onScrolled()" [scrollWindow]="false"
+(scroll)="onScroll($event)"
+>
     <div class="p-3 text-center" *ngIf="(videos$ | async).length == 0 && !(loading$ | async)">
         No video found !
     </div>

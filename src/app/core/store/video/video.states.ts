@@ -8,5 +8,6 @@ export interface IVideosState {
     home:IVideoState,
     trending:IVideoState,
     search:IVideoState,
-    related:IVideoState
+    related:IVideoState,
+    nowPlaying:any
 }

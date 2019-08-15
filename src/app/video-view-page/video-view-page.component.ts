@@ -18,6 +18,7 @@ export class VideoViewPageComponent implements OnInit {
   videoId: string;
   videos$: Observable<Array<any>>;
   loadingRelated$: Observable<boolean>;
+  toggle:boolean;
   constructor(
     private youtubeApiService: YoutubeApiService,
     private route: ActivatedRoute,
@@ -38,9 +39,14 @@ export class VideoViewPageComponent implements OnInit {
       this.store.dispatch(new fromVideo.LoadVideosRelated({ videoId: videoId, nextPageToken: null }))
     })
   }
-  getVideoDetail(videoId: string) {
+  toggleIframe(){
+    this.toggle = !this.toggle;
+  }
+  getVideoDetail(videoId) {
     this.youtubeApiService.getVideoDetail(videoId).subscribe(res => {
       this.video = res.items[0];
+      // save video to now playing store
+      this.store.dispatch(new fromVideo.AddNowPlaying(this.video));
     });
   }
   onScrolled() {

@@ -1,4 +1,4 @@
-import { IVideoState, videoReducer, IVideosState } from './video';
+import { videoReducer, IVideosState } from './video';
 import { ActionReducerMap, StoreModule } from '@ngrx/store';
 import { NgModule } from '@angular/core';
 import { ICollectionState } from './collection/collection.states';
@@ -6,12 +6,12 @@ import { collectionReducer } from './collection/collection.reducer';
 
 
 export interface IAppState {
-    video:IVideosState,
+    videos:IVideosState,
     collection:ICollectionState
 }
 
 export const appReducers:ActionReducerMap<IAppState> = {
-    video:videoReducer,
+    videos:videoReducer,
     collection:collectionReducer
 }
 
